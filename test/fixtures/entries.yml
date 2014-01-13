@@ -1,0 +1,57 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  sbdx_member: MyString
+  sbdx_member_entry_identifier: MyString
+  date_missing: 2014-01-13
+  date_recovered: 2014-01-13
+  date_abandoned: 2014-01-13
+  neighborhood: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  country: MyString
+  brand: MyString
+  year: 1
+  model: MyString
+  color: MyString
+  size: MyString
+  serial_number: MyString
+  owner_name: MyString
+  circumstances: MyText
+  bicycle_description: MyText
+  reward: false
+  info_url: MyString
+  sighting_report_url: MyString
+  sighting_report_instructions: MyText
+  photo_1_url: MyString
+  photo_2_url: MyString
+  photo_3_url: MyString
+
+two:
+  sbdx_member: MyString
+  sbdx_member_entry_identifier: MyString
+  date_missing: 2014-01-13
+  date_recovered: 2014-01-13
+  date_abandoned: 2014-01-13
+  neighborhood: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  country: MyString
+  brand: MyString
+  year: 1
+  model: MyString
+  color: MyString
+  size: MyString
+  serial_number: MyString
+  owner_name: MyString
+  circumstances: MyText
+  bicycle_description: MyText
+  reward: false
+  info_url: MyString
+  sighting_report_url: MyString
+  sighting_report_instructions: MyText
+  photo_1_url: MyString
+  photo_2_url: MyString
+  photo_3_url: MyString

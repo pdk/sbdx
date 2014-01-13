@@ -1,0 +1,73 @@
+<h1>Listing entries</h1>
+
+<table>
+  <tr>
+    <th>Sbdx member</th>
+    <th>Sbdx member entry</th>
+    <th>Date missing</th>
+    <th>Date recovered</th>
+    <th>Date abandoned</th>
+    <th>Neighborhood</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip</th>
+    <th>Country</th>
+    <th>Brand</th>
+    <th>Year</th>
+    <th>Model</th>
+    <th>Color</th>
+    <th>Size</th>
+    <th>Serial number</th>
+    <th>Owner name</th>
+    <th>Circumstances</th>
+    <th>Bicycle description</th>
+    <th>Reward</th>
+    <th>Info url</th>
+    <th>Sighting report url</th>
+    <th>Sighting report instructions</th>
+    <th>Photo 1 url</th>
+    <th>Photo 2 url</th>
+    <th>Photo 3 url</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @entries.each do |entry| %>
+  <tr>
+    <td><%= entry.sbdx_member %></td>
+    <td><%= entry.sbdx_member_entry_identifier %></td>
+    <td><%= entry.date_missing %></td>
+    <td><%= entry.date_recovered %></td>
+    <td><%= entry.date_abandoned %></td>
+    <td><%= entry.neighborhood %></td>
+    <td><%= entry.city %></td>
+    <td><%= entry.state %></td>
+    <td><%= entry.zip %></td>
+    <td><%= entry.country %></td>
+    <td><%= entry.brand %></td>
+    <td><%= entry.year %></td>
+    <td><%= entry.model %></td>
+    <td><%= entry.color %></td>
+    <td><%= entry.size %></td>
+    <td><%= entry.serial_number %></td>
+    <td><%= entry.owner_name %></td>
+    <td><%= entry.circumstances %></td>
+    <td><%= entry.bicycle_description %></td>
+    <td><%= entry.reward %></td>
+    <td><%= entry.info_url %></td>
+    <td><%= entry.sighting_report_url %></td>
+    <td><%= entry.sighting_report_instructions %></td>
+    <td><%= entry.photo_1_url %></td>
+    <td><%= entry.photo_2_url %></td>
+    <td><%= entry.photo_3_url %></td>
+    <td><%= link_to 'Show', entry %></td>
+    <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
+    <td><%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Entry', new_entry_path %>

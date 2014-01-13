@@ -1,0 +1,168 @@
+<%= form_for(@entry) do |f| %>
+  <% if @entry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@entry.errors.count, "error") %> prohibited this entry from being saved:</h2>
+
+      <ul>
+      <% @entry.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :sbdx_member %><br />
+    <%= f.text_field :sbdx_member %>
+  </div>
+  <div class="field">
+    <%= f.label :sbdx_member_entry_identifier %><br />
+    <%= f.text_field :sbdx_member_entry_identifier %>
+  </div>
+  
+  <p> sbdx_member + sbdx_member_entry_identifier provide a unique key for a member
+    to update/delete records in the data exchange. Each entry is "owned" by a "member"
+    and they must provide a unique identifier for each of their records within
+    the exchange.
+    </p>
+  
+  <div class="field">
+    <%= f.label :date_missing %><br />
+    <%= f.date_select :date_missing, :include_blank => true %>
+  </div>
+  
+  <p> date_missing is the date that the bicycle was stolen/discovered missing. </p>
+  
+  <div class="field">
+    <%= f.label :date_recovered %><br />
+    <%= f.date_select :date_recovered, :include_blank => true %>
+  </div>
+  <div class="field">
+    <%= f.label :date_abandoned %><br />
+    <%= f.date_select :date_abandoned, :include_blank => true %>
+  </div>
+  
+  <p> If/when a bicycle is recovered, the date_recovered value is set. If, for some reason, it is determined 
+    that the bicycle has been destroyed, or that there is no longer any reason to continue trying to 
+    recover it, the date_abandoned value is set.</p>
+  
+  <div class="field">
+    <%= f.label :neighborhood %><br />
+    <%= f.text_field :neighborhood %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br />
+    <%= f.text_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :zip %><br />
+    <%= f.text_field :zip %>
+  </div>
+  <div class="field">
+    <%= f.label :country %><br />
+    <%= f.text_field :country %>
+  </div>
+  
+  <p> neighborhood, city, state, zip, country are fields to describe where the bicycle
+    was stolen/lost. </p>
+  
+  <div class="field">
+    <%= f.label :brand %><br />
+    <%= f.text_field :brand %>
+  </div>
+  <div class="field">
+    <%= f.label :year %><br />
+    <%= f.number_field :year %>
+  </div>
+  <div class="field">
+    <%= f.label :model %><br />
+    <%= f.text_field :model %>
+  </div>
+  <div class="field">
+    <%= f.label :color %><br />
+    <%= f.text_field :color %>
+  </div>
+  <div class="field">
+    <%= f.label :size %><br />
+    <%= f.text_field :size %>
+  </div>
+  <div class="field">
+    <%= f.label :serial_number %><br />
+    <%= f.text_field :serial_number %>
+  </div>
+  <div class="field">
+    <%= f.label :owner_name %><br />
+    <%= f.text_field :owner_name %>
+  </div>
+  <div class="field">
+    <%= f.label :circumstances %><br />
+    <%= f.text_area :circumstances %>
+  </div>
+  
+  <p> circumstances is for a narrative about how the bike 
+    was stolen, or came to be missing. </p>
+  
+  <div class="field">
+    <%= f.label :bicycle_description %><br />
+    <%= f.text_area :bicycle_description %>
+  </div>
+  <div class="field">
+    <%= f.label :reward %><br />
+    <%= f.check_box :reward %>
+  </div>
+  
+  <p> Is there a reward offered for recovery? </p>
+  
+  <div class="field">
+    <%= f.label :info_url %><br />
+    <%= f.text_field :info_url %>
+  </div>
+  
+  <p> info_url is for a page about the bicycle, or about the bicycle theft. This should
+    be a human-readable, informational web page. </p>
+    
+  <div class="field">
+    <%= f.label :sighting_report_url %><br />
+    <%= f.text_field :sighting_report_url %>
+  </div>
+  
+  <p> sighting_report_url is for a page where a person can either directly
+    report a sighting, or get information about how to report a sighting.
+    This may or may not be the same page as the info_url. </p>
+    
+  <div class="field">
+    <%= f.label :sighting_report_instructions %><br />
+    <%= f.text_area :sighting_report_instructions %>
+  </div>
+  
+  <p> sighting_report_instructions is a text field to supply instructions 
+    about how to report a sighting. This may supplement the sighting_report_url
+    field, or may be provided instead of a sighting_report_url.
+    </p>
+  
+  <div class="field">
+    <%= f.label :photo_1_url %><br />
+    <%= f.text_field :photo_1_url %>
+  </div>
+  <div class="field">
+    <%= f.label :photo_2_url %><br />
+    <%= f.text_field :photo_2_url %>
+  </div>
+  <div class="field">
+    <%= f.label :photo_3_url %><br />
+    <%= f.text_field :photo_3_url %>
+  </div>
+  
+  <p> URLs for photos. The photos should be publicly accessible via HTTP.
+    A client of SBDX should be able to include these values in their
+    own web page with HTML IMG tags.
+    </p>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
