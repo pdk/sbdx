@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140113193000) do
+ActiveRecord::Schema.define(:version => 20140126014813) do
 
   create_table "entries", :force => true do |t|
     t.string   "sbdx_member"
@@ -43,5 +43,7 @@ ActiveRecord::Schema.define(:version => 20140113193000) do
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
   end
+
+  add_index "entries", ["sbdx_member", "sbdx_member_entry_identifier"], :name => "entry_ak", :unique => true
 
 end
