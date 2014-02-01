@@ -86,11 +86,45 @@ class Entry < ActiveRecord::Base
     end
     Activity.record("stolenbicycleregistry", Entry.max_sbr_oid, "get_latest_sbr", "stop")
   end
+
+  
+  before_save :reset_non_serial
+  def reset_non_serial
+    if serial_number == '(This registrant did not provide a serial number.)'
+      self_serial_number = nil
+    end
+  end
+    
+  before_save :normalize_serial
+  def normalize_serial
+    # This should/must match the logic in 
+    # bike_index:SerialNormalizer#normalized
+    
+    # .gsub(/\s+/, "") would be used to remove ALL whitespace
+    # but we're just removing leading+trailing whitespace for now.
+    
+    if serial_number.present?
+      self.serial_normalized = serial_number.strip.upcase.tr(
+        'O|ILSZB',
+        '0111528'
+      )
+    else
+      self.serial_normalized = nil
+    end
+    true
+  end
+
+  def Entry.update_missing_normalized_serials
+    Entry.where("serial_number is NOT null and serial_normalized IS null").find_each do |e|
+      e.normalize_serial
+      e.update_attribute(:serial_normalized, e.serial_normalized)
+    end
+  end
   
   def Entry.snarf_from_stolen_bicycle_registry(oid)
     url = "http://stolenbicycleregistry.com/showbike.php?oid=#{oid}"
-    # read_url = "../snarf-sbr/sbr-showbike-#{oid}.html"
-    read_url = url
+    read_url = "../snarf-sbr/sbr-showbike-#{oid}.html"
+    # read_url = url
     
     known_keys = [
       'brand',

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140201041319) do
+ActiveRecord::Schema.define(:version => 20140201060859) do
 
   create_table "activities", :force => true do |t|
     t.string   "sbdx_member"
@@ -54,7 +54,8 @@ ActiveRecord::Schema.define(:version => 20140201041319) do
     t.datetime "updated_at",                   :null => false
     t.string   "police_report_filed_with"
     t.string   "police_report_reference"
-    t.string   "stolen_from"
+    t.text     "stolen_from"
+    t.string   "serial_normalized"
   end
 
   add_index "entries", ["sbdx_member", "sbdx_member_entry_identifier"], :name => "entry_ak", :unique => true
