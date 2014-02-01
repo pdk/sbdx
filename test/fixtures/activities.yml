@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  sbdx_member: MyString
+  sbdx_member_entry_identifier: MyString
+  activity: MyString
+  status: MyString
+  message: MyString
+
+two:
+  sbdx_member: MyString
+  sbdx_member_entry_identifier: MyString
+  activity: MyString
+  status: MyString
+  message: MyString

@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140126014813) do
+ActiveRecord::Schema.define(:version => 20140201041319) do
+
+  create_table "activities", :force => true do |t|
+    t.string   "sbdx_member"
+    t.string   "sbdx_member_entry_identifier"
+    t.string   "activity"
+    t.string   "status"
+    t.string   "message"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
 
   create_table "entries", :force => true do |t|
     t.string   "sbdx_member"
@@ -42,6 +52,9 @@ ActiveRecord::Schema.define(:version => 20140126014813) do
     t.string   "photo_3_url"
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
+    t.string   "police_report_filed_with"
+    t.string   "police_report_reference"
+    t.string   "stolen_from"
   end
 
   add_index "entries", ["sbdx_member", "sbdx_member_entry_identifier"], :name => "entry_ak", :unique => true
